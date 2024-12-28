@@ -5,6 +5,7 @@ require_once 'models/user.php';
     $user = new User();
     $medecins = $user->affichierMedecin();
     $patients = $user->affichierPatient();
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $user = new User();
     $result = $user->ajouterUser(

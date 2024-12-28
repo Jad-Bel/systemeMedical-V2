@@ -56,22 +56,34 @@
 
         <!-- Form for doctor consultation -->
         <div class="mb-8">
-            <h2 class="text-2xl font-semibold mb-4">Consulter un patient</h2>
-            <form action="" method="post" class="space-y-4">
-                <input type="hidden" name="action" value="consulterPatient">
-                <select name="medecinIndex" required class="w-full p-2 border rounded">
-                    <?php foreach ($patients as $patient): ?>
-                        <option value="<?php echo $patient; ?>"><?php echo htmlspecialchars($medecin['nom'] . ' ' . $medecin['prenom']); ?></option>
-                    <?php endforeach; ?>
-                </select>
-                <select name="patientIndex" required class="w-full p-2 border rounded">
-                    <?php foreach ($medecins as $medecin): ?>
-                        <option value="<?php echo $medecin; ?>"><?php echo htmlspecialchars($medecin['nom'] . ' ' . $medecin['prenom']); ?></option>
-                    <?php endforeach; ?>
-                </select>
-                <button type="submit" class="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600">Consulter Patient</button>
-            </form>
-        </div>
+    <h2 class="text-2xl font-semibold mb-4">Consulter un patient</h2>
+    <form action="" method="post" class="space-y-4">
+        <input type="hidden" name="action" value="consulterPatient">
+        
+        <!-- Dropdown for patients -->
+        <select name="patient" required class="w-full p-2 border rounded">
+            <?php foreach ($patients as $patient): ?>
+                <option value="<?php echo $patient['id_patient']; ?>">
+                    <?php echo htmlspecialchars($patient['nom'] . ' ' . $patient['prenom']); ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+        
+        <!-- Dropdown for medecins -->
+        <select name="medecin" required class="w-full p-2 border rounded">
+            <?php foreach ($medecins as $medecin): ?>
+                <option value="<?php echo $medecin['id_utilisateur']; ?>">
+                    <?php echo htmlspecialchars($medecin['nom'] . ' ' . $medecin['prenom']); ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+        
+        <button type="submit" class="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600">
+            Consulter Patient
+        </button>
+    </form>
+</div>
+
 
         <!-- Display consultation message if any -->
         
