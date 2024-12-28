@@ -8,17 +8,30 @@ require_once 'models/user.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $user = new User();
-    $result = $user->ajouterUser(
+    $addUser = $user->ajouterUser(
         $_POST['nom'],
         $_POST['prenom'],
         $_POST['role']
     );
-    if ($result === true) {
+    if ($addUser === true) {
         // echo "user ajouter";
         header('location: index.php');
         exit;
     } else {
         echo "error";
+    }
+
+    $bookRes = $user->bookRes(
+        $_POST['patient'],
+        $_POST['medecin'],
+        $_POST['date']
+    );
+
+    if ($bookRes) {
+        header('location: index.php');
+        exit;
+    } else {
+        echo 'error';
     }
     exit;
 }

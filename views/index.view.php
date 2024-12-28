@@ -39,12 +39,12 @@
             <h2 class="text-2xl font-semibold mb-4">Prendre un rendez-vous</h2>
             <form action="" method="post" class="space-y-4">
                 <!-- <input type="hidden" name="action" value="prendreRendezVous"> -->
-                <select name="patientIndex" required class="w-full p-2 border rounded">
+                <select name="patient" required class="w-full p-2 border rounded">
                     <?php foreach ($patients as $patient) { ?>
                         <option value="<?php echo $patient['id_utilisateur']; ?>"><?php echo htmlspecialchars($patient['nom'] . ' ' . $patient['prenom']); ?></option>
                     <?php } ?>
                 </select>
-                <select name="patientIndex" required class="w-full p-2 border rounded">
+                <select name="medecine" required class="w-full p-2 border rounded">
                     <?php foreach ($medecins as $medecin) { ?>
                         <option value="<?php echo $medecin['id_utilisateur']; ?>"><?php echo htmlspecialchars($medecin['nom'] . ' ' . $medecin['prenom']); ?></option>
                     <?php } ?>
