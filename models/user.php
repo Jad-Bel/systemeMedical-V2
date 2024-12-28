@@ -16,11 +16,27 @@ class User {
     }
 
     public function affichierMedecin () {
-        $select_sql = "SELECT * FROM users WHERE role_id = 1";
-        $stmt = $this->connect->prepare($select_sql);
-        $stmt->execute();
+        try {
+            $select_sql = "SELECT * FROM users WHERE role_id = 1";
+            $stmt = $this->connect->prepare($select_sql);
+            $stmt->execute();
 
-        return $stmt->fetchAll();
+            return $stmt->fetchAll();
+        } catch (Exception $e) {
+            throw new Error('Error' . $e);
+        }
+    }
+
+    public function affichierPatient() {
+        try {
+            $select_sql = "SELECT * FROM users WHERE role_id = 2";
+            $stmt = $this->connect->prepare($select_sql);
+            $stmt->execute();
+
+            return $stmt->fetchAll();
+        } catch (Exception $e) {
+            throw new Error('Error' . $e);
+        }
     }
 
     public function ajouterUser($user_nom, $user_prenom, $user_role) {
@@ -34,6 +50,12 @@ class User {
         } catch (PDOException) {
             return "An error occurred while creating the user";
         }
+    }
+
+    public function bookRes() {
+        // try {
+        //     $book_sql = "";
+        // }
     }
 }
 
