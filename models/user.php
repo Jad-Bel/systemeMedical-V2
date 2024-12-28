@@ -16,11 +16,27 @@ class User {
     }
 
     public function affichierMedecin () {
-        $select_sql = "SELECT * FROM users WHERE role_id = 1";
-        $stmt = $this->connect->prepare($select_sql);
-        $stmt->execute();
+        try {
+            $select_sql = "SELECT * FROM users WHERE role_id = 1";
+            $stmt = $this->connect->prepare($select_sql);
+            $stmt->execute();
 
-        return $stmt->fetchAll();
+            return $stmt->fetchAll();
+        } catch (Exception $e) {
+            throw new Error('error' . $e);
+        }
+    }
+
+    public function affichierPatient () {
+        try {
+            $select_sql = "SELECT * FROM users WHERE role_id = 2";
+            $stmt = $this->connect->prepare($select_sql);
+            $stmt->execute();
+
+            return $stmt->fetchAll();
+        } catch (Exception $e) {
+            throw new Error('error' . $e);
+        }
     }
 
     public function ajouterUser($user_nom, $user_prenom, $user_role) {
@@ -46,4 +62,25 @@ class User {
 // } else {
 //     echo "error";
 // }
+// abstract class sendala {
+//     public $sixe;
+//     public $color;
+// }
+
+// class sendalaSba3 extends sendala {
+//     public $form_sba3;
+//     public function __construct($form_sba3) {
+//         $this->form_sba3 = $form_sba3;
+//     }
+// }
+
+// class sendala7emam extends sendala {
+//     private $bzet;
+// }
+
+// $reef = new sendalaSba3('sba3_kbir');
+
 ?>
+
+
+

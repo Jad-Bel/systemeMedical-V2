@@ -54,12 +54,12 @@
             <h2 class="text-2xl font-semibold mb-4">Consulter un patient</h2>
             <form action="" method="post" class="space-y-4">
                 <input type="hidden" name="action" value="consulterPatient">
-                <select name="medecinIndex" required class="w-full p-2 border rounded">
+                <select name="patient" required class="w-full p-2 border rounded">
                     <?php foreach ($patients as $patient): ?>
-                        <option value="<?php echo $index; ?>"><?php echo $medecin->afficherNomComplet(); ?> (<?php echo $medecin->specialite; ?>)</option>
+                        <option value="<?php echo $patient['id_utilisateur']; ?>"><?php echo htmlspecialchars($medecin['nom'] . ' ' . $medecin['prenom']); ?> (<?php echo $medecin->specialite; ?>)</option>
                     <?php endforeach; ?>
                 </select>
-                <select name="patientIndex" required class="w-full p-2 border rounded">
+                <select name="medecin" required class="w-full p-2 border rounded">
                     <?php foreach ($patients as $index => $patient): ?>
                         <option value="<?php echo $index; ?>"><?php echo $patient->afficherNomComplet(); ?></option>
                     <?php endforeach; ?>
