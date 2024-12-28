@@ -17,6 +17,7 @@
                 <input type="hidden" name="action" value="addPatient">
                 <input type="text" name="nom" placeholder="Nom" required class="w-full p-2 border rounded">
                 <input type="text" name="prenom" placeholder="Prénom" required class="w-full p-2 border rounded">
+                <input type="number" min="1" max="2" name="role" placeholder="Role_id" required class="w-full p-2 border rounded">
                 <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Ajouter Patient</button>
             </form>
         </div>
