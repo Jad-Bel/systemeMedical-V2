@@ -23,7 +23,7 @@
         </div>
 
         <!-- Form to add a doctor -->
-        <div class="mb-8">
+        <!-- <div class="mb-8">
             <h2 class="text-2xl font-semibold mb-4">Ajouter un médecin</h2>
             <form action="" method="post" class="space-y-4">
                 <input type="hidden" name="action" value="addMedecin">
@@ -32,7 +32,7 @@
                 <input type="text" name="specialite" placeholder="Spécialité" required class="w-full p-2 border rounded">
                 <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Ajouter Médecin</button>
             </form>
-        </div>
+        </div> -->
 
         <!-- Form to schedule an appointment -->
         <div class="mb-8">

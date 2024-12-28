@@ -11,7 +11,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_POST['role']
     );
     if ($result === true) {
-        echo "user ajouter";
+        // echo "user ajouter";
+        header('location: index.php');
+        exit;
     } else {
         echo "error";
     }

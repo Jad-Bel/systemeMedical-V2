@@ -1,5 +1,5 @@
 <?php
-require_once './config/db.php';
+require_once '../config/db.php';
 
 class User {
     private $connect;
@@ -13,6 +13,14 @@ class User {
             die("Database connection failed. Please try again later"); 
             echo 2;
         }
+    }
+
+    public function affichierMedecin () {
+        $select_sql = "SELECT * FROM users WHERE role_id = 1";
+        $stmt = $this->connect->prepare($select_sql);
+        $stmt->execute();
+
+        return $stmt->fetchAll();
     }
 
     public function ajouterUser($user_nom, $user_prenom, $user_role) {
@@ -31,10 +39,10 @@ class User {
 
 
 // $user = new User();
-// $result = $user->ajouterUser('taha', 'jaiti', '1');
+// $result = $user->affichierMedecin();
 
 // if ($result) {
-//     echo "user ajouter";
+//     var_dump($result);
 // } else {
 //     echo "error";
 // }
