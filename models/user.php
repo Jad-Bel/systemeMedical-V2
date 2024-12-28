@@ -1,5 +1,5 @@
 <?php
-require_once './config/db.php';
+require_once '../config/db.php';
 
 class User {
     private $connect;
@@ -53,16 +53,23 @@ class User {
         }
     }
 
-    public function bookRes() {
-        // try {
-        //     $book_sql = "";
-        // }
+    public function bookRes($id_patient, $id_medecin, $date) {
+        try {
+            $book_sql = "INSERT INTO rendezvous (`id_patient`, `id_medecin`, `date_rdv`) VALUES (:patient, :medecin, :date)";
+            $stmt = $this->connect->prepare($book_sql);
+            $stmt->bindParam(":patient", $id_patient); 
+            $stmt->bindParam(":medecin", $id_medecin); 
+            $stmt->bindParam(":date", $date);
+            return $stmt->execute(); 
+        } catch (Exception $e) {
+            throw new Error("Error" . $e);
+        }
     }
 }
 
 
 // $user = new User();
-// $result = $user->affichierMedecin();
+// $result = $user->bookRes(2,1,'2024-01-01');
 
 // if ($result) {
 //     var_dump($result);
