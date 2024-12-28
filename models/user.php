@@ -23,11 +23,12 @@ class User {
 
             return $stmt->fetchAll();
         } catch (Exception $e) {
-            throw new Error('error' . $e);
+            throw new Error('Error' . $e);
         }
     }
 
     public function affichierPatient () {
+
         try {
             $select_sql = "SELECT * FROM users WHERE role_id = 2";
             $stmt = $this->connect->prepare($select_sql);
@@ -35,7 +36,7 @@ class User {
 
             return $stmt->fetchAll();
         } catch (Exception $e) {
-            throw new Error('error' . $e);
+            throw new Error('Error' . $e);
         }
     }
 
@@ -50,6 +51,12 @@ class User {
         } catch (PDOException) {
             return "An error occurred while creating the user";
         }
+    }
+
+    public function bookRes() {
+        // try {
+        //     $book_sql = "";
+        // }
     }
 }
 
