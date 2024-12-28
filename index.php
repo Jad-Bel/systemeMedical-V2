@@ -2,7 +2,9 @@
 // Include the model files
 require_once 'models/user.php';
 
-// Handle form submissions
+    $user = new User();
+    $medecins = $user->affichierMedecin();
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $user = new User();
     $result = $user->ajouterUser(

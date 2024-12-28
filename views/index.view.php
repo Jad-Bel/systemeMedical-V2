@@ -40,9 +40,9 @@
             <form action="" method="post" class="space-y-4">
                 <input type="hidden" name="action" value="prendreRendezVous">
                 <select name="patientIndex" required class="w-full p-2 border rounded">
-                    <?php foreach ($patients as $index => $patient): ?>
-                        <option value="<?php echo $index; ?>"><?php echo $patient->afficherNomComplet(); ?></option>
-                    <?php endforeach; ?>
+                    <?php foreach ($medecins as $medecin) { ?>
+                        <option value="<?php echo $medecin['id_utilisateur']; ?>"><?php echo htmlspecialchars($medecin['nom'] . ' ' . $medecin['prenom']); ?></option>
+                    <?php } ?>
                 </select>
                 <input type="date" name="date" required class="w-full p-2 border rounded">
                 <button type="submit" class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600">Prendre Rendez-vous</button>
@@ -55,7 +55,7 @@
             <form action="" method="post" class="space-y-4">
                 <input type="hidden" name="action" value="consulterPatient">
                 <select name="medecinIndex" required class="w-full p-2 border rounded">
-                    <?php foreach ($medecins as $index => $medecin): ?>
+                    <?php foreach ($patients as $patient): ?>
                         <option value="<?php echo $index; ?>"><?php echo $medecin->afficherNomComplet(); ?> (<?php echo $medecin->specialite; ?>)</option>
                     <?php endforeach; ?>
                 </select>
