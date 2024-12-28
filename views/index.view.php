@@ -17,12 +17,13 @@
                 <input type="hidden" name="action" value="addPatient">
                 <input type="text" name="nom" placeholder="Nom" required class="w-full p-2 border rounded">
                 <input type="text" name="prenom" placeholder="Prénom" required class="w-full p-2 border rounded">
+                <input type="number" min="1" max="2" name="role" placeholder="Role_id" required class="w-full p-2 border rounded">
                 <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Ajouter Patient</button>
             </form>
         </div>
 
         <!-- Form to add a doctor -->
-        <div class="mb-8">
+        <!-- <div class="mb-8">
             <h2 class="text-2xl font-semibold mb-4">Ajouter un médecin</h2>
             <form action="" method="post" class="space-y-4">
                 <input type="hidden" name="action" value="addMedecin">
@@ -31,7 +32,7 @@
                 <input type="text" name="specialite" placeholder="Spécialité" required class="w-full p-2 border rounded">
                 <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Ajouter Médecin</button>
             </form>
-        </div>
+        </div> -->
 
         <!-- Form to schedule an appointment -->
         <div class="mb-8">
@@ -39,9 +40,9 @@
             <form action="" method="post" class="space-y-4">
                 <input type="hidden" name="action" value="prendreRendezVous">
                 <select name="patientIndex" required class="w-full p-2 border rounded">
-                    <?php foreach ($patients as $index => $patient): ?>
-                        <option value="<?php echo $index; ?>"><?php echo $patient->afficherNomComplet(); ?></option>
-                    <?php endforeach; ?>
+                    <?php foreach ($medecins as $medecin) { ?>
+                        <option value="<?php echo $medecin['id_utilisateur']; ?>"><?php echo htmlspecialchars($medecin['nom'] . ' ' . $medecin['prenom']); ?></option>
+                    <?php } ?>
                 </select>
                 <input type="date" name="date" required class="w-full p-2 border rounded">
                 <button type="submit" class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600">Prendre Rendez-vous</button>
@@ -54,7 +55,7 @@
             <form action="" method="post" class="space-y-4">
                 <input type="hidden" name="action" value="consulterPatient">
                 <select name="medecinIndex" required class="w-full p-2 border rounded">
-                    <?php foreach ($medecins as $index => $medecin): ?>
+                    <?php foreach ($patients as $patient): ?>
                         <option value="<?php echo $index; ?>"><?php echo $medecin->afficherNomComplet(); ?> (<?php echo $medecin->specialite; ?>)</option>
                     <?php endforeach; ?>
                 </select>

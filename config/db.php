@@ -21,12 +21,12 @@ class Database {
     } 
 }
 
-$data = new Database();
+// $data = new Database();
 
-$resutl = $data->getdatabase();
+// $resutl = $data->getdatabase();
 
-if ($resutl) {
-    echo 1;
-} else {
-    echo 2;
-}
+// if ($resutl) {
+//     echo 1;
+// } else {
+//     echo 2;
+// }
